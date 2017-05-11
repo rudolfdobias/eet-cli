@@ -1,10 +1,10 @@
-#EET-CLI
+# EET-CLI
 
-### A proprietary PHP script for communication with Andrej fucking Babiš. Based on slevomat/eet-client (many thanks). Designed for use from extenral program - not in CLI manually.
+### A proprietary PHP script for communication with Andrej fucking Babiš. Based on slevomat/eet-client (many thanks). Designed for use from external program - not from console manually. That would be a real fuckery...
 
 ## Install:
 
- just run `composer install`
+ Run `composer install`
  
 ## Use
 
@@ -36,9 +36,11 @@ Usage: 'php client.php [json command]'
 ... Just pass an escaped JSON string with fields listed above and everything should work.
 The response is also in JSON and contains FIK, BKP, PKP or error code.
 
+And for the record - referenced keys must be in PEM format.
+
 ### Footnote
 
-I don't expect you would use this but if you do, do it without any warranty or support. Blame Babiš and .NET Core framework, in which is practically impossible to code the EET client.
+I don't expect you would use this but if you do, do it without any warranty or support.
 
 Cheers.
 

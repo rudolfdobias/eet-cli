@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef535f57-967e-4b33-8f8a-d50fb60deecf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CommandMapper.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EetClientFactory.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/InputCommand.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/InputMapper.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ReturnStructure.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Executor.php" afterPath="$PROJECT_DIR$/src/Executor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="eet-cli.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,9 +63,9 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="405">
-                <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="30">
+                <caret line="2" column="217" selection-start-line="2" selection-start-column="217" selection-end-line="2" selection-end-column="217" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -330,12 +322,12 @@
       <updated>1494535863136</updated>
       <workItem from="1494535864798" duration="1649000" />
       <workItem from="1494537598632" duration="2504000" />
-      <workItem from="1494540319908" duration="1428000" />
+      <workItem from="1494540319908" duration="1643000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5581000" />
+    <option name="totallyTimeSpent" value="5796000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -580,9 +572,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="405">
-            <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="30">
+            <caret line="2" column="217" selection-start-line="2" selection-start-column="217" selection-end-line="2" selection-end-column="217" />
             <folding />
           </first_editor>
           <second_editor />
