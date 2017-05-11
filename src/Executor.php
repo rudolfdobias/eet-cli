@@ -2,36 +2,30 @@
 
 namespace KocicakEET;
 
-use SlevomatEET\Cryptography\CryptographyService;
-use SlevomatEET\Configuration;
-use SlevomatEET\EvidenceEnvironment;
-use SlevomatEET\Client;
-use SlevomatEET\Receipt;
-use SlevomatEET\Driver\GuzzleSoapClientDriver;
-
 class Executor
 {
-    public function Execute($argv)
+    public function Execute($argv) : void
     {
-        var_dump($argv);die();
+        try {
 
-        $crypto = new CryptographyService('../cert/EET_CA1_Playground-CZ683555118.key', '../cert/EET_CA1_Playground-CZ683555118.pub', 'eet');
-        $configuration = new Configuration(
-            'CZ683555118',
-            '01',
-            '01',
-            EvidenceEnvironment::get(EvidenceEnvironment::PLAYGROUND), // nebo EvidenceEnvironment::get(EvidenceEnvironment::PRODUCTION) pro komunikaci s produkčním systémem
-            false // zda zasílat účtenky v ověřovacím módu
-        );
-        $client = new Client($crypto, $configuration, new GuzzleSoapClientDriver(new \GuzzleHttp\Client()));
+            $data = $this->_doWork($argv);
+            echo json_decode($data);
+            exit(0);
 
-        $receipt = new Receipt(
-            true,
-            'CZ683555118',
-            '0/6460/ZQ42',
-            new \DateTimeImmutable('2016-11-01 00:30:12'),
-            3411300
-        );
+        } catch (\Exception $crap) {
+            echo "ERROR: " . $crap->getMessage() . "\r\n";
+            $this->printHelp();
+            exit(1);
+        }
+    }
+
+    private function _doWork($args) : ReturnStructure
+    {
+
+        $command = InputMapper::Map($args);
+        $receipt = CommandMapper::Map($command);
+        $client = EetClientFactory::Map($command);
+
 
         try {
             $response = $client->send($receipt);
@@ -49,24 +43,44 @@ class Executor
     /**
      * @param $args
      */
-    private function parseArgs($args){
-        if (empty($args) || !is_array($args)){
-            throw new \InvalidArgumentException("No input args!");
-        }
-
-        foreach($args as $a){
-
-        }
+    private function printHelp()
+    {
+        echo "
+        ******
+        
+        Usage: 'php client.php [json command]'
+        
+        Json fields:
+        
+        Environment ('playground|production', default: playground)
+        PrivateKeyPath (required)
+        PublicKeyPath (required)
+        KeyPassword (required)
+        VatIdentifier (required)
+        CashdeskId (required)
+        DeviceId (required)
+   
+        ReceiptNumber (required)
+        OverallAmount (required)
+        TaxFreeAmount (required)
+    
+        TaxBaseLevel1
+        TaxBaseLevel2
+        TaxBaseLevel3
+        TaxAmountLevel1
+        TaxAmountLevel2
+        TaxAmountLevel3
+        
+        ---
+        For further help open the InputMapper.php.
+        Don't blame me. Blame Andrej fucking Babiš and the .NET foundation 'cause it wasn't possible to code this on C#.NET Core.
+        ---
+        Good luck.
+        
+        ******
+        ";
     }
 }
 
-class InputStructure{
-    public $Environment= EvidenceEnvironment::PLAYGROUND;
-    public $PrivateKeyPath;
-    public $PublicKeyPath;
-    public $KeyPassword;
-    public $VatIdentifier;
-    public $CashdeskId;
-    public $DeviceId;
-}
+
 
