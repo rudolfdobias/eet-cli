@@ -1,0 +1,19 @@
+{
+  "name": "kocicak/eet-cli",
+  "description": "CLI EET Client based on slevomat/eet",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kočičák",
+      "email": "ruda.dobias@gmail.com"
+    }
+  ],
+  "require": {
+    "slevomat/eet-client": "1.0.1",
+    "guzzlehttp/guzzle": "6.2.3"
+  },
+  "autoload": {
+    "psr-4": {"KocicakEET\\": "src/"}
+  }
+}
